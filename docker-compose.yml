@@ -24,11 +24,10 @@ services:
     depends_on:
       - db
     command: python manage.py runserver 0.0.0.0:8000
-
-  redis:
-    image: redis:alpine
-    ports:
-      - 6379:6379
+  # redis:
+  #   image: redis:alpine
+  #   ports:
+  #     - 6379:6379
 
 volumes:
   db_data:

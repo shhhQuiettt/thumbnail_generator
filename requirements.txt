@@ -3,3 +3,5 @@ mysqlclient
 redgreenunittest
 coverage
 django-redis
+djangorestframework>=3.13,<4.0
+djoser>=2.0
