@@ -5,7 +5,15 @@ from django.contrib.auth.models import (
     PermissionsMixin,
 )
 
-# Create your models here.
+
+class Tier(models.Model):
+    name = models.CharField(max_length=50, unique=True)
+    allowed_width = models.IntegerField(
+        "Allowed thumbnail width in px", null=True, blank=True
+    )
+    allowed_height = models.IntegerField(
+        "Allowed image height in px", null=True, blank=True
+    )
 
 
 class UserManager(BaseUserManager):
@@ -41,6 +49,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_superuser = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    tier = models.ForeignKey(Tier, null=True, blank=True, on_delete=models.RESTRICT)
 
     objects = UserManager()
 
