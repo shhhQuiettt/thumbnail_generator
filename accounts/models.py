@@ -4,6 +4,7 @@ from django.contrib.auth.models import (
     BaseUserManager,
     PermissionsMixin,
 )
+from thumbnails.models import ThumbnailSize
 
 
 class Tier(models.Model):
@@ -14,6 +15,7 @@ class Tier(models.Model):
     can_get_original_link = models.BooleanField(
         "Permission to fetch an original image link", default=False
     )
+    allowed_sizes = models.ManyToManyField(ThumbnailSize, related_name="tiers")
 
 
 class UserManager(BaseUserManager):
