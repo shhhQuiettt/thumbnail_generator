@@ -8,11 +8,11 @@ from django.contrib.auth.models import (
 
 class Tier(models.Model):
     name = models.CharField(max_length=50, unique=True)
-    allowed_width = models.IntegerField(
-        "Allowed thumbnail width in px", null=True, blank=True
-    )
     allowed_height = models.IntegerField(
         "Allowed image height in px", null=True, blank=True
+    )
+    can_get_original_link = models.BooleanField(
+        "Permission to fetch an original image link", default=False
     )
 
 

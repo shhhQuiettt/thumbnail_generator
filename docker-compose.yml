@@ -7,7 +7,6 @@ services:
       - ${MARIADB_PORT}:${MARIADB_PORT}
     volumes:
       - db_data:/var/lib/mysql
-    restart: always
     env_file:
       - .env
 

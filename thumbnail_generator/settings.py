@@ -38,9 +38,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "accounts.apps.AccountsConfig",
     "rest_framework",
-    "djoser",
+    "accounts.apps.AccountsConfig",
+    "thumbnails.apps.ThumbnailsConfig",
 ]
 
 MIDDLEWARE = [
@@ -71,6 +71,9 @@ TEMPLATES = [
     },
 ]
 
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
+}
 WSGI_APPLICATION = "thumbnail_generator.wsgi.application"
 
 
@@ -131,5 +134,6 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTH_USER_MODEL = "accounts.User"
+
 
 TEST_RUNNER = "redgreenunittest.django.runner.RedGreenDiscoverRunner"
